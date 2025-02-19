@@ -9,8 +9,8 @@ namespace Fourminator.Data.Domain
     public class User
     {
         public Guid Id { get; set; } = new Guid();
-        public string ExternalId { get; set; }
-        public string Nickname { get; set; }
+        public required string ExternalId { get; set; }
+        public required string Nickname { get; set; }
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
