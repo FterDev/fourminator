@@ -57,6 +57,8 @@ artifacts/
 /bin
 /obj
 /.vs
+obj/
+**/obj
 
 # Microsoft Azure Web App publish settings
 # PublishSettingsFile.pubxml
