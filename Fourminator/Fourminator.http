@@ -1,0 +1,6 @@
+@Fourminator_HostAddress = http://localhost:5227
+
+GET {{Fourminator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
