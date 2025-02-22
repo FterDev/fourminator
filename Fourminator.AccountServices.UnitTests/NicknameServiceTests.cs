@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Fourminator.AccountServices.UnitTests
 {
-    public class ExampleTest
+    public class NicknameServiceTests
     {
         [Fact]
         public void ExampleTest_ShouldAddTwoNumbers()
