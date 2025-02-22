@@ -8,6 +8,6 @@ namespace Fourminator.AccountServices.Services
 {
     public interface INicknameService
     {
-        string CheckNickname(string nickname);
+        bool CheckNickname(string nickname);
     }
 }

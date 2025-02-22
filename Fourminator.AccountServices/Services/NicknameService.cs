@@ -8,7 +8,7 @@ namespace Fourminator.AccountServices.Services
 {
     internal class NicknameService : INicknameService
     {
-        public string CheckNickname(string nickname)
+        public bool CheckNickname(string nickname)
         {
             throw new NotImplementedException();
         }
