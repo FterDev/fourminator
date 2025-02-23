@@ -1,5 +1,6 @@
 ﻿using Fourminator.AccountServices.Persistence;
 using Fourminator.AccountServices.Services;
+using Fourminator.Data.Exceptions;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,16 @@ namespace Fourminator.AccountServices.UnitTests
 
             var result = await nicknameService.CheckNicknameExists("test");
             Assert.False(result);
+        }
+
+        [Fact]
+        public async Task CheckNicknameExists_RepositoryThrowsException_ThrowsDbException()
+        {
+            var nicknameRepositoryMock = new Mock<INicknameRepository>();
+            nicknameRepositoryMock.Setup(x => x.GetNickname(It.IsAny<string>())).ThrowsAsync(new Exception());
+            var nicknameRepository = nicknameRepositoryMock.Object;
+            var nicknameService = new NicknameService(nicknameRepository);
+            await Assert.ThrowsAsync<DbException>(() => nicknameService.CheckNicknameExists("test"));
         }
     }
 }
