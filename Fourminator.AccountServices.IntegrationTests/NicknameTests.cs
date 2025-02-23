@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.TestHost;
+using Xunit;
 
 namespace Fourminator.AccountServices.IntegrationTests
 {
-    class NicknameTests
+    public class NicknameTests
     {
+      
     }
 }
