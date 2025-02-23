@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Fourminator.AccountServices.Persistence;
 
 namespace Fourminator.AccountServices.Services
 {
     internal class NicknameService : INicknameService
     {
-        public bool CheckNickname(string nickname)
+        private readonly INicknameRepository _nicknameRepository;
+        public NicknameService(INicknameRepository nicknameRepository) {
+            _nicknameRepository = nicknameRepository;
+        }
+        public async Task<bool> CheckNicknameExists(string nickname)
         {
-            throw new NotImplementedException();
+            var result = await _nicknameRepository.GetNickname(nickname);
+            return !string.IsNullOrEmpty(result);
         }
     }
 }

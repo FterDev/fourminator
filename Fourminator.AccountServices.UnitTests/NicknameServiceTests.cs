@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Fourminator.AccountServices.Persistence;
+using Fourminator.AccountServices.Services;
+using Moq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +13,30 @@ namespace Fourminator.AccountServices.UnitTests
     public class NicknameServiceTests
     {
         [Fact]
-        public void ExampleTest_ShouldAddTwoNumbers()
+        public async Task CheckNicknameExists_ExistentNickname_ReturnsTrue()
         {
-            // Arrange
-            int a = 1;
-            int b = 2;
-            int expected = 3;
-            // Act
-            int actual = a + b;
-            // Assert
-            Assert.Equal(expected, actual);
+            var nicknameRepositoryMock = new Mock<INicknameRepository>();
+            nicknameRepositoryMock.Setup(x => x.GetNickname(It.IsAny<string>())).ReturnsAsync("test");
+            var nicknameRepository = nicknameRepositoryMock.Object;
+
+            var nicknameService = new NicknameService(nicknameRepository);
+
+
+            var result = await nicknameService.CheckNicknameExists("test");
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public async Task CheckNicknameExists_NonExistentNickname_ReturnsFalse()
+        {
+            var nicknameRepositoryMock = new Mock<INicknameRepository>();
+            nicknameRepositoryMock.Setup(x => x.GetNickname(It.IsAny<string>())).ReturnsAsync((string)null!);
+            var nicknameRepository = nicknameRepositoryMock.Object;
+            var nicknameService = new NicknameService(nicknameRepository);
+
+            var result = await nicknameService.CheckNicknameExists("test");
+            Assert.False(result);
         }
     }
 }
