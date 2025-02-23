@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Fourminator.Data\Fourminator.Data.csproj" />
+  </ItemGroup>
+
 </Project>

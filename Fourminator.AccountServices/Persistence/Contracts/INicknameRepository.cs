@@ -2,6 +2,6 @@
 {
     public interface INicknameRepository
     {
-        string GetNickname(string nickname);
+        Task<string?> GetNickname(string nickname);
     }
 }

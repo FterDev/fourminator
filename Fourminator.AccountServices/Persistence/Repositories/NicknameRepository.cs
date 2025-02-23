@@ -1,4 +1,5 @@
 ﻿using Fourminator.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fourminator.AccountServices.Persistence
 {
@@ -9,9 +10,12 @@ namespace Fourminator.AccountServices.Persistence
         public NicknameRepository(FourminatorContext context) {
             _context = context;
         }
-        public string GetNickname(string nickname)
+        public async Task<string?> GetNickname(string nickname)
         {
-            throw new NotImplementedException();
+            var res = await _context.Users
+                .Where(u => u.Nickname == nickname).Select(u => u.Nickname)
+                .FirstOrDefaultAsync();
+            return res;
         }
     }
 }
