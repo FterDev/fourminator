@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fourminator.Data
 {
-    class FourminatorContext : DbContext
+    public class FourminatorContext : DbContext
     {
 
         public FourminatorContext(DbContextOptions<FourminatorContext> options) : base(options)
