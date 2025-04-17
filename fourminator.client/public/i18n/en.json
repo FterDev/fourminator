@@ -1,0 +1,15 @@
+{
+  "app": {
+    "base":{
+      "title": "4-MINATOR",
+      "subtitle": "Lorem Ipsum"
+    },
+    "system":
+    {
+      "notfound":{
+        "code": "404",
+        "message": "Page not found"
+      }
+    }
+  }
+}
