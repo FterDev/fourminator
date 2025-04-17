@@ -3,6 +3,6 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
-  {path: '', pathMatch: "full", component: LandingPageComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: '', pathMatch: "full", component: LandingPageComponent, title: '4-MINATOR'},
+  {path: '**', component: PageNotFoundComponent, title: '404'}
 ];

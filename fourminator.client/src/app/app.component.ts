@@ -17,5 +17,5 @@ export class AppComponent {
     translateService.setTranslation('en', translateEn);
     translateService.setDefaultLang('en');
   }
-  title = 'fourminator.client';
+
 }
