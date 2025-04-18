@@ -6,7 +6,13 @@
     },
     "pages": {
       "newPlayer": {
-        "title": "New Player"
+        "title": "New Player",
+        "subtitle": "",
+        "form":{
+          "nickname": "Enter your nickname",
+          "termsOfUse": "I accept the terms of use",
+          "submit": "Join!"
+        }
       }
     },
     "system":
