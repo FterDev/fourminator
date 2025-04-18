@@ -4,6 +4,11 @@
       "title": "4-MINATOR",
       "subtitle": "Lorem Ipsum"
     },
+    "pages": {
+      "newPlayer": {
+        "title": "New Player"
+      }
+    },
     "system":
     {
       "notfound":{
