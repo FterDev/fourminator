@@ -1,14 +1,14 @@
 <form>
   <mat-card>
-    <mat-card-title>Title</mat-card-title>
-    <mat-card-subtitle>Lorem Ipsum</mat-card-subtitle>
+    <mat-card-title>{{"app.pages.newPlayer.title" | translate}}</mat-card-title>
+    <mat-card-subtitle>{{"app.pages.newPlayer.subtitle" | translate}}</mat-card-subtitle>
     <mat-card-content>
       <mat-form-field appearance="outline">
-        <mat-label>Nickname</mat-label>
-        <input matInput type="text">
+        <mat-label>{{"app.pages.newPlayer.form.nickname" | translate}}</mat-label>
+        <input matInput type="text" placeholder="{{'app.pages.newPlayer.form.nicknamePlaceholder' | translate}}">
       </mat-form-field>
-      <mat-checkbox>Terms of use</mat-checkbox>
-      <button mat-flat-button>Join!</button>
+      <mat-checkbox>{{"app.pages.newPlayer.form.termsOfUse" | translate}}</mat-checkbox>
+      <button mat-flat-button>{{"app.pages.newPlayer.form.submit" | translate}}</button>
     </mat-card-content>
   </mat-card>
 </form>

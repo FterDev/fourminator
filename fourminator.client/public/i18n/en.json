@@ -7,9 +7,10 @@
     "pages": {
       "newPlayer": {
         "title": "New Player",
-        "subtitle": "",
+        "subtitle": "Test",
         "form":{
-          "nickname": "Enter your nickname",
+          "nickname": "Nickname",
+          "nicknamePlaceholder": "Enter your nickname",
           "termsOfUse": "I accept the terms of use",
           "submit": "Join!"
         }
