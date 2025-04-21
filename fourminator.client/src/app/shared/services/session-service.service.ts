@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class SessionServiceService {
 
-  constructor() { }
-
   setSession(nickname: string, remember: boolean)
   {
 
