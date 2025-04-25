@@ -1,14 +1,16 @@
-import { Injectable } from '@angular/core';
+import { inject, Inject, Injectable } from '@angular/core';
 import User from '../data/user';
 import Session from '../data/session';
+import { HelperService } from './helper-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SessionServiceService {
+export class SessionService {
 
 
   private storageItemName = 'fm-session';
+  private helperService = inject(HelperService);
 
   setSession(nickname: string, remember: boolean)
   {
@@ -32,11 +34,11 @@ export class SessionServiceService {
   private createNewUser(nickname: string) : User
   {
     const newUser: User = {
-      guid: '',
+      guid: this.helperService.generateGuid(),
       deviceId: '',
       location: '',
       nickname: nickname,
-      uniqueIdentifier: 1234
+      uniqueIdentifier: this.helperService.generateUniqueIdentifier()
     }
 
     return newUser;

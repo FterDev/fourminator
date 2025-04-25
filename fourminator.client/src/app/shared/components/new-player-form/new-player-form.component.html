@@ -1,14 +1,22 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="submit()">
   <mat-card>
     <mat-card-title>{{"app.pages.newPlayer.title" | translate}}</mat-card-title>
     <mat-card-subtitle>{{"app.pages.newPlayer.subtitle" | translate}}</mat-card-subtitle>
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>{{"app.pages.newPlayer.form.nickname" | translate}}</mat-label>
-        <input matInput type="text" placeholder="{{'app.pages.newPlayer.form.nicknamePlaceholder' | translate}}">
+        <input matInput formControlName="nickname" type="text" placeholder="{{'app.pages.newPlayer.form.nicknamePlaceholder' | translate}}">
+        @if(form.get('nickname')?.hasError('required'))
+        {
+          <mat-error>Nickname is required!</mat-error>
+        }
       </mat-form-field>
-      <mat-checkbox>{{"app.pages.newPlayer.form.termsOfUse" | translate}}</mat-checkbox>
-      <button mat-flat-button>{{"app.pages.newPlayer.form.submit" | translate}}</button>
+      <mat-checkbox formControlName="termsOfUse">{{"app.pages.newPlayer.form.termsOfUse" | translate}}</mat-checkbox>
+      @if(form.get('termsOfUse')?.hasError('required') && form.get('termsOfUse')?.touched)
+      {
+        <mat-error>You need to accept the terms of use to continue</mat-error>
+      }
+      <button mat-flat-button [disabled]="!form.valid">{{"app.pages.newPlayer.form.submit" | translate}}</button>
     </mat-card-content>
   </mat-card>
 </form>
