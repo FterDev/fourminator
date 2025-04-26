@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace fourminator.Lobby.Persistence
 {
-    public class User
+    public class UserDto
     {
-        public Guid Id { get; set; }
-        public required string ClientId { get; set; }
         public required string Nickname { get; set; }
         public ushort UniqueIdentifier { get; set; }
+        public UserDto(User u)
+        {
+            Nickname = u.Nickname;
+            UniqueIdentifier = u.UniqueIdentifier;
+        }
     }
+
+   
 }
