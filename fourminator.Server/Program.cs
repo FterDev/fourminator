@@ -1,3 +1,5 @@
+using fourminator.Lobby.Hubs;
+using fourminator.Lobby.Persistence;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,8 @@ builder.Host.UseSerilog((context, configuration) =>
         .ReadFrom.Configuration(context.Configuration)
         .Enrich.FromLogContext()
 );
+
+builder.Services.AddSingleton<List<User>>();
 
 
 var app = builder.Build();
@@ -33,5 +37,6 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
+app.MapHub<LobbyHub>("/Lobby");
 
 app.Run();

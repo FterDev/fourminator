@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace fourminator.Lobby.Hubs
 {
-    internal class LobbyHub : Hub
+    public class LobbyHub : Hub
     {
         private ILogger<LobbyHub> _logger;
         private IList<User> _lobbyUsers;
@@ -16,7 +16,7 @@ namespace fourminator.Lobby.Hubs
         }
 
 
-        internal async Task SetNewUser(string nickname, ushort uniqueIdentifier)
+        public async Task SetNewUser(string nickname, ushort uniqueIdentifier)
         {
             try
             {
